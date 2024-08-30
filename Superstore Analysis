@@ -1,0 +1,21 @@
+#1. Orders the items by price.
+
+SELECT item_name, price
+FROM superstore
+ORDER BY price;
+
+#2. Average of the item prices.
+
+SELECT AVG(price)
+FROM superstore;
+
+#3. Sum of items categorized as Kitchen Supplies.
+
+SELECT SUM(price), category
+FROM superstore
+WHERE category="Kitchen Supplies";
+
+#4. What was the most bought category?
+
+SELECT MAX(category)
+FROM superstore;
