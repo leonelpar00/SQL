@@ -1,0 +1,46 @@
+-- What are the top 10 artist based on popularity?
+
+SELECT track_name, artist_name, popularity
+FROM Spotifydata
+ORDER BY popularity desc
+LIMIT 10 
+;
+
+-- What artist released the longest songs?
+SELECT track_name, artist_name, duration_ms
+FROM Spotifydata
+ORDER BY duration_ms desc
+LIMIT 5
+;
+
+-- What songs is the average energy of the top 10 songs?
+SELECT track_name, avg(energy)
+FROM Spotifydata
+WHERE id <= 10
+GROUP BY track_name
+ORDER BY energy desc
+LIMIT 10
+;
+
+--Which songs on average had the highest danceability and energy by artist and track?
+SELECT track_name,artist_name, avg(danceability), avg(energy)
+FROM Spotifydata
+GROUP BY track_name, artist_name
+;
+
+-- Which songs have an instrumentalness value greater than 0?
+SELECT track_name, artist_name, instrumentalness
+FROM Spotifydata
+WHERE instrumentalness <> 0
+ORDER BY instrumentalness desc
+;
+
+-- Which songs have a highter tempo than 100?
+SELECT track_name, artist_name, tempo
+FROM Spotifydata
+WHERE tempo > 100.0
+ORDER BY tempo desc
+;
+
+
+
